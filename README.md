@@ -2,7 +2,7 @@
 Pytorch and Keras implementation of [Grad-CAM](https://arxiv.org/abs/1610.02391), simple to use with any CNN based architecture.
 
 <p align="center">
-  <img src="imgs/result.png" width="600">
+  <img src="imgs/result.png" width="700">
 </p>
 
 
@@ -33,4 +33,10 @@ After calculating ak for the target class c, we perform a weighted combination o
   <img src="imgs/fig2.JPG" width="250">
 </p>
 
-## Usage
+## How to use?
+
+Follow this [IPython](Grad_CAM_demo.ipynb) notebook for more demonstration.
+
+### References
+* [Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization](https://arxiv.org/abs/1610.02391)
+* [Understanding Hooks in PyTorch](https://blog.paperspace.com/pytorch-hooks-gradient-clipping-debugging/)
