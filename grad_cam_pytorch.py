@@ -96,6 +96,7 @@ class Torch_GradCam:
         heatmap = cv2.resize(np.float64(heatmap), (img.shape[1], img.shape[0]))
         heatmap = np.uint8(255 * heatmap)
         heatmap = cv2.applyColorMap(heatmap, cv2.COLORMAP_JET)
+        heatmap = cv2.cvtColor(heatmap, cv2.COLOR_RGB2BGR)
         s_map = Image.blend(Image.fromarray(heatmap), Image.fromarray(img), alpha=alpha)
         return s_map
 
