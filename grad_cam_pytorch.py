@@ -96,10 +96,20 @@ class Torch_GradCam:
         heatmap = cv2.resize(np.float64(heatmap), (img.shape[1], img.shape[0]))
         heatmap = np.uint8(255 * heatmap)
         heatmap = cv2.applyColorMap(heatmap, cv2.COLORMAP_JET)
+        self.save_heatmap(img_path, heatmap, img, alpha)
+        #BGR for visualization
         heatmap = cv2.cvtColor(heatmap, cv2.COLOR_RGB2BGR)
-        s_map = Image.blend(Image.fromarray(heatmap), Image.fromarray(img), alpha=alpha)
-        return s_map
+        s_map_bgr = Image.blend(Image.fromarray(heatmap), Image.fromarray(img), alpha=alpha)
+        return s_map_bgr
 
     def get_output_class(self):
         """return the class id (or) the argmax of the output tensor"""
         return self.class_output
+
+    def save_heatmap(self, img_path,heatmap, img, alpha):
+        '''
+        save rgb heatmap
+        '''
+        #RGB for saving to disc
+        s_map_rgb = Image.blend(Image.fromarray(heatmap), Image.fromarray(img), alpha=alpha)
+        cv2.imwrite(img_path+'_torch_cam.jpg', np.array(s_map_rgb))
