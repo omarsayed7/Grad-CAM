@@ -20,12 +20,12 @@ important regions in the image for predicting the concept.
 
 To obtain the class discriminative localization map of width u and height v for any class c, we first compute the gradient of the score for the class c, yc (before the softmax) with respect to feature maps Ak of a convolutional layer.
 <p align="center">
-  <img src="imgs/fig1.jpg" width="250">
+  <img src="imgs/fig1.JPG" width="250">
 </p>
 
 After calculating ak for the target class c, we perform a weighted combination of activation maps and follow it by ReLU.
 <p align="center">
-  <img src="imgs/fig2.jpg" width="250">
+  <img src="imgs/fig2.JPG" width="250">
 </p>
 
 ## Usage
